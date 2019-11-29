@@ -43,7 +43,7 @@ A small program designed to assist in purchasing parts for a system written in P
   
   
   
-  ## In Progress ##
+## In Progress ##
   
 * Tkinter GUI interface
 * AMD Graphics Cards
