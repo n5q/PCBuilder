@@ -3,6 +3,7 @@ from os import path
 from os import name as osName
 import requests
 import time
+from PCBuilder import buildPC
 
 if osName == "nt":
     if path.exists(r"c:\Python\py.ico"):
@@ -31,8 +32,12 @@ screen.create_window(200, 100, window=label2)
 budgetEntry = tk.Entry (root)
 screen.create_window(200, 140, window=budgetEntry)
 
-def getVars():
+def getOutput():
     usage.destroy()
+    build = (buildPC(budget,cpu.get(),use.get()))
+    print(build)
+    output = tk.Label(root, text = build, font=("helvetica",10))
+    screen.create_window(1,1, window=output)
 
 def getUsage():
     global use
@@ -48,8 +53,8 @@ def getUsage():
 
     usageSelect.create_window(150, 15, window=usageLabel)
     use = tk.StringVar(usage)
-    tk.Radiobutton(usage,command = getVars, text = "Work", variable = use,value = "Work", indicator = 0,background = "grey33").pack(fill = "x", ipady = 20)
-    tk.Radiobutton(usage,command = getVars, text = "Gaming", variable = use,value = "Gaming", indicator = 0,background = "grey66").pack(fill = "x", ipady = 20)
+    tk.Radiobutton(usage,command = getOutput, text = "Work", variable = use,value = "Work", indicator = 0,background = "grey33").pack(fill = "x", ipady = 20)
+    tk.Radiobutton(usage,command = getOutput, text = "Gaming", variable = use,value = "Gaming", indicator = 0,background = "grey66").pack(fill = "x", ipady = 20)
 
 
 
@@ -71,7 +76,7 @@ def getCPU():
 
 def getBudget():
     global budget
-    budget = (budgetEntry.get())
+    budget = (int(budgetEntry.get()))
     getCPU()
 
 button1 = tk.Button(text="Confirm budget", command=getBudget, bg="brown", fg="white", relief = "flat", font=("helvetica", 9, "bold"))
