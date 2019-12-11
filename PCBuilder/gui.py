@@ -36,8 +36,8 @@ def getOutput():
     usage.destroy()
     build = (buildPC(budget,cpu.get(),use.get()))
     print(build)
-    output = tk.Label(root, text = build, font=("helvetica",10))
-    screen.create_window(1,1, window=output)
+    output = tk.Label(root, text = build, font=("TkFixedFont",10))
+    screen.create_window(200,50, window=output)
 
 def getUsage():
     global use

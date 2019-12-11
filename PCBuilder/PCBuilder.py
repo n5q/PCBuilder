@@ -146,17 +146,29 @@ def buildPC(budget,processor,use):
         choice = [CPU, GPU, RAM, SSD, HDD, "", "", ""]
         price = [cpuPrice, gpuPrice, ramPrice, ssdPrice, hddPrice, moboBudget, psuBudget, caseBudget]
 
-        print("\n" + "\n" + "###              Your Parts              ###" + "\n" + "\n" + "Your budget: " + str(budget) + "\n")
-        print( "Part" + " "*30 + "Selection" + " "*23 + "Price")
-        print( "-"*80)
+        l1 = ("\n" + "\n" + "###              Your Parts              ###" + "\n" + "\n" + "Your budget: " + str(budget) + "\n")
+        l2 = ( "Part" + " "*30 + "Selection" + " "*23 + "Price")
+        l3 = ( "-"*80)
+
+        array = []
         for x in range(8):
-            print(part[x] + " "*(31 - len(part[x])) + "-  " + choice[x] + " "*(29 - len(choice[x])) +  "-  " + "$" + str(round(price[x])))  
-        print( "-"*80) 
-        print("Budget:" + " "*56 + "-  " + "$" + str(budget))
-        print("Total:" + " "*57 + "-  " + "$" + str(round(cpuPrice+gpuPrice+ramPrice+moboBudget+psuBudget+storageBudget+caseBudget)))
-        print("Leftover Money:" + " "*48 + "-  " + "$" + str(round(budget - (cpuPrice+gpuPrice+ramPrice+moboBudget+psuBudget+storageBudget+caseBudget))))
+            array.append(part[x] + " "*(31 - len(part[x])) + "-  " + choice[x] + " "*(29 - len(choice[x])) +  "-  " + "$" + str(round(price[x])))
+
+        l4 = array[0]
+        l5 = array[1]
+        l6 = array[2]
+        l7 = array[3]
+        l8 = array[4]
+        l9 = array[5]
+        l10= array[6]
+        l11= array[7]
+         
+
+        l12 = ( "-"*80) 
+        l13 = ("Budget:" + " "*56 + "-  " + "$" + str(budget))
+        l14 = ("Total:" + " "*57 + "-  " + "$" + str(round(cpuPrice+gpuPrice+ramPrice+moboBudget+psuBudget+storageBudget+caseBudget)))
+        l15 = ("Leftover Money:" + " "*48 + "-  " + "$" + str(round(budget - (cpuPrice+gpuPrice+ramPrice+moboBudget+psuBudget+storageBudget+caseBudget))))
     
-
-
+        return (l1 + "\n" + l2 + "\n" + l3 + "\n" + l4 + "\n" + l5 + "\n" + l6 + "\n" + l7 + "\n" + l8 + "\n" + l9 + "\n" + l10 + "\n" + l11 + "\n" + l12 + "\n" + l13 + "\n" + l14 + "\n" + l15)
 
  
