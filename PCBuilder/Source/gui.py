@@ -7,23 +7,25 @@ from datetime import datetime
 from PCBuilder import buildPC
 
 mainPath = (rootDir("~") + r"\Documents\PCBuilder")
-resources = mainPath + "Resources"
+resources = mainPath + r"\Resources"
+icon = resources + r"\icon.ico"
 
 
-if path.exists(resources + "icon.ico"):
+if path.exists(icon):
     pass
 else:
     url = "https://drive.google.com/uc?export=download&id=1QJN6bN3aH3vt6NDAtAWZmG4KStBep12z"
     r = get(url, allow_redirects=True)
-    open(resources + "icon.ico", "wb").write(r.content)
+    open(resources, "wb").write(r.content)
 
 
 root= tk.Tk()
 root.title("PC Builder")
 
-root.iconbitmap(resources + "icon.ico")
+root.iconbitmap(icon)
 screen = tk.Canvas(root, width = 400, height = 300)
 screen.pack()
+
 
 
 label1 = tk.Label(root, text="PC Builder", font=("helvetica",14))
@@ -45,7 +47,7 @@ def getOutput():
     print(build)
     output = tk.Tk()
     output.title("Completed Build")
-    output.iconbitmap(resources + "icon.ico")
+    output.iconbitmap(icon)
     outputWindow = tk.Canvas(output, width = 600, height = 300)
     outputWindow.pack()
     outputLabel = tk.Label(output, text = build, font=("consolas",10))
@@ -57,7 +59,7 @@ def getUsage():
     processor.destroy()
     usage = tk.Tk()
     usage.title("Select Usage")
-    usage.iconbitmap(resources + "icon.ico")
+    usage.iconbitmap(icon)
     usageSelect = tk.Canvas(usage, width = 300, height = 25)
     usageSelect.pack()
     usageLabel = tk.Label(usage, text = "What is your main usage?", font=("helvetica",13))
@@ -74,7 +76,7 @@ def getCPU():
     global processor
     processor = tk.Tk()
     processor.title("Processor Selection")
-    processor.iconbitmap(resources + "icon.ico")
+    processor.iconbitmap(icon)
     processorSelect = tk.Canvas(processor, width = 300, height = 25)
     processorSelect.pack()
     cpuLabel = tk.Label(processor, text = "Select your preferred processor brand", font=("helvetica",13))
