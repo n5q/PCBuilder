@@ -1,25 +1,28 @@
 import tkinter as tk
 from os import path
+from os.path import expanduser as rootDir
 from os import name as osName
-import requests
-import time
+from requests import get
+from datetime import datetime
 from PCBuilder import buildPC
 
-if osName == "nt":
-    if path.exists(r"c:\Python\py.ico"):
-        pass
-    else:
-        url = "https://drive.google.com/uc?export=download&id=1QJN6bN3aH3vt6NDAtAWZmG4KStBep12z"
-        r = requests.get(url, allow_redirects=True)
-        open("c:\Python\py.ico", "wb").write(r.content)
+mainPath = (rootDir("~") + r"\Documents\PCBuilder")
+resources = mainPath + "Resources"
+
+
+if path.exists(resources + "icon.ico"):
+    pass
+else:
+    url = "https://drive.google.com/uc?export=download&id=1QJN6bN3aH3vt6NDAtAWZmG4KStBep12z"
+    r = get(url, allow_redirects=True)
+    open(resources + "icon.ico", "wb").write(r.content)
 
 
 root= tk.Tk()
 root.title("PC Builder")
-if osName == "nt":
-    root.iconbitmap(r"c:\Python\py.ico")
 
-screen = tk.Canvas(root, width = 400, height = 300,  relief = "raised")
+root.iconbitmap(resources + "icon.ico")
+screen = tk.Canvas(root, width = 400, height = 300)
 screen.pack()
 
 
@@ -32,12 +35,21 @@ screen.create_window(200, 100, window=label2)
 budgetEntry = tk.Entry (root)
 screen.create_window(200, 140, window=budgetEntry)
 
+
+time = lambda format : datetime.now().strftime(format)
+# print(time(("%d/%m/%Y %H:%M:%S")))
+
 def getOutput():
     usage.destroy()
     build = (buildPC(budget,cpu.get(),use.get()))
     print(build)
-    output = tk.Label(root, text = build, font=("TkFixedFont",10))
-    screen.create_window(200,50, window=output)
+    output = tk.Tk()
+    output.title("Completed Build")
+    output.iconbitmap(resources + "icon.ico")
+    outputWindow = tk.Canvas(output, width = 600, height = 300)
+    outputWindow.pack()
+    outputLabel = tk.Label(output, text = build, font=("consolas",10))
+    outputWindow.create_window(300,100, window=outputLabel)
 
 def getUsage():
     global use
@@ -45,8 +57,7 @@ def getUsage():
     processor.destroy()
     usage = tk.Tk()
     usage.title("Select Usage")
-    if osName == "nt":
-        usage.iconbitmap(r"c:\Python\py.ico")
+    usage.iconbitmap(resources + "icon.ico")
     usageSelect = tk.Canvas(usage, width = 300, height = 25)
     usageSelect.pack()
     usageLabel = tk.Label(usage, text = "What is your main usage?", font=("helvetica",13))
@@ -63,8 +74,7 @@ def getCPU():
     global processor
     processor = tk.Tk()
     processor.title("Processor Selection")
-    if osName == "nt":
-        processor.iconbitmap(r"c:\Python\py.ico")
+    processor.iconbitmap(resources + "icon.ico")
     processorSelect = tk.Canvas(processor, width = 300, height = 25)
     processorSelect.pack()
     cpuLabel = tk.Label(processor, text = "Select your preferred processor brand", font=("helvetica",13))
