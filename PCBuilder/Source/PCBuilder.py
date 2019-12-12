@@ -113,25 +113,41 @@ def buildPC(budget,processor,use):
             ramPrice = 50
 
 #INCLUDES SSD FOR FASTER BOOT TIMES AND OS PERFORMANCE
-        storageBudget = storageBudget - 31
-        SSD = "256GB SSD"
-        ssdPrice = 31
+        if storageBudget*0.5 > 175:
+
+            storageBudget = storageBudget - 175
+            SSD = "1TB SSD"
+            ssdPrice = 175
+
+        elif storageBudget*0.5 > 80:
+
+            storageBudget = storageBudget - 80
+            SSD = "512GB SSD"
+            ssdPrice = 80
+
+        else:
+
+            storageBudget = storageBudget - 35
+            SSD = "256GB SSD"
+            ssdPrice = 35
+
+
 
         if storageBudget >= 95:
             HDD = "4TB HDD"
-            hddPrice = 95
+            hddPrice = 115
 
         elif storageBudget >= 64:
             HDD = "2TB HDD"
-            hddPrice = 64
+            hddPrice = 84
         
         elif storageBudget >= 42:
             HDD = "1TB HDD"
-            hddPrice = 42
+            hddPrice = 52
 
         elif storageBudget >= 25:
             HDD = "512GB HDD"
-            hddPrice = 25
+            hddPrice = 35
 
         
         if processor == "Intel":
@@ -171,4 +187,3 @@ def buildPC(budget,processor,use):
     
         return (l1 + "\n" + l2 + "\n" + l3 + "\n" + l4 + "\n" + l5 + "\n" + l6 + "\n" + l7 + "\n" + l8 + "\n" + l9 + "\n" + l10 + "\n" + l11 + "\n" + l12 + "\n" + l13 + "\n" + l14 + "\n" + l15)
 
- 
