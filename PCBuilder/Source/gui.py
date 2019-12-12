@@ -10,7 +10,7 @@ mainPath = (rootDir("~") + r"\Documents\PCBuilder")
 resources = mainPath + r"\Resources"
 icon = resources + r"\icon.ico"
 
-
+## USE os.getcwd()
 if path.exists(icon):
     pass
 else:
