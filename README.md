@@ -45,16 +45,16 @@ A small program designed to assist in purchasing parts for a system written in P
   
 ## In Progress ##
   
-* Tkinter GUI interface
-* AMD Graphics Cards
-* Option to show detailed part information
+* [x] Tkinter GUI interface
+* [x] AMD Graphics Cards
+* [ ] Option to show detailed part information
   * Clock speed
   * VRam (For GPUs)
   * Power usage
   * Overclock information
-* Option to export build to a .txt file 
-* Improving budget balancing to be less heavy on the storage
-* Scraping price details from Amazon or Newegg rather than giving static estimates
+* [x] Option to export build to a .txt file 
+* [x] Improving budget balancing to be less heavy on the storage
+* [ ] Scraping price details from Amazon or Newegg rather than giving static estimates
   
   
   
