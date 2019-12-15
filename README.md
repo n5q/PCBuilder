@@ -17,8 +17,9 @@ There are two ways of running the program. If you have python installed you can 
 * Option to choose from Intel or AMD processors
 * Ratio of budget allocated to each part chnages to best suit the chosen usage
 * Displays induvidual prices for each part 
-* Option to add custom parts with prices (Buggy)
-* Option to input a custom ratio for each part from the budget
+* TKinter GUI interface
+* Exports completed build to a .txt file for future refrence
+
 
 
 
@@ -53,17 +54,16 @@ There are two ways of running the program. If you have python installed you can 
   
 ## In Progress ##
   
-* [x] Tkinter GUI interface
-* [x] AMD Graphics Cards
-* [ ] Option to show detailed part information
+* AMD Graphics Cards
+* Option to show detailed part information
   * Clock speed
   * VRam (For GPUs)
   * Power usage
   * Overclock information
-* [x] Option to export build to a .txt file 
-* [x] Improving budget balancing to be less heavy on the storage
-* [ ] Scraping price details from Amazon or Newegg rather than giving static estimates
-  
+* Dark theme for the GUI
+* Scraping price details from Amazon or Newegg rather than giving static estimates
+* Option to add custom parts with prices (Buggy)
+* Option to input a custom ratio for each part from the budget
   
   
  ## Future Plans ##
