@@ -4,6 +4,14 @@ A small program designed to assist in purchasing parts for a system written in P
 
 
 
+
+## INSTRUCTIONS ##
+
+There are two ways of running the program. If you have python installed you can run `git clone https://github.com/NasifQadri/PCBuilder` and then run `gui.py` or if you do not have python installed you can head to the [releases section](https://github.com/NasifQadri/PCBuilder/releases), download and extract the latest .zip, then run PCBuilder.exe
+
+
+## ##
+
 ## Current Features ##
 
 * Option to choose from Intel or AMD processors
