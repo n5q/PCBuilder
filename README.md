@@ -17,7 +17,7 @@ There are two ways of running the program. If you have python installed you can 
 * Option to choose from Intel or AMD processors
 * Ratio of budget allocated to each part chnages to best suit the chosen usage
 * Displays induvidual prices for each part 
-* TKinter GUI interface
+* TKinter GUI 
 * Exports completed build to a .txt file for future refrence
 
 
