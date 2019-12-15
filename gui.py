@@ -1,20 +1,19 @@
 import tkinter as tk
 from os import path
-# from os.path import expanduser as rootDir
-from os import name as osName
-# from requests import get
 from datetime import datetime
 from webbrowser import open as wOpen
-from PCBuilder import buildPC
 from pathlib import Path
+from PCBuilder import buildPC
+import os
 
 def error():
     wOpen("https://github.com/NasifQadri/PCBuilder/issues/new", new=2)
      
 
 # GET CURRENT WORKING DIRECTORY
-cwd = (Path(__file__).parent.absolute()) 
-resources = (str(cwd) + "\Resources" + r"\"")[:-1]
+cwd = str(Path(__file__).parent.absolute())
+cwd = cwd.replace("\\","/") 
+resources = (str(cwd) + "/Resources/")
 icon = resources + "icon.ico"
 
 root= tk.Tk()
@@ -37,7 +36,7 @@ screen.create_window(200, 140, window=budgetEntry)
 
 
 time = lambda format : datetime.now().strftime(format)
-# print(time(("%d/%m/%Y %H:%M:%S")))
+
 
 # CREATES WINDOW WITH THE COMPLETED BUILD
 def getOutput():
@@ -63,6 +62,15 @@ def getOutput():
         outputWindow.pack()
         outputLabel = tk.Label(output, text = build, font=("consolas",10))
         outputWindow.create_window(300,100, window=outputLabel)
+        if build.startswith("You"):
+            pass
+        else:
+            fileName = "/" + time("Build - %d-%m-%Y@%H-%M-%S") + ".txt"
+            fileDir = str(cwd) + fileName
+
+            with open(fileDir,"w+") as f:
+                f.write(build)
+                f.close()
 
 # GET USAGE(WORK OR GAMING)       
 def getUsage():
