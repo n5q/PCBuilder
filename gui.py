@@ -12,7 +12,7 @@ def error():
     wOpen("https://github.com/NasifQadri/PCBuilder/issues/new", new=2)
      
 
-
+# GET CURRENT WORKING DIRECTORY
 cwd = (Path(__file__).parent.absolute()) 
 resources = (str(cwd) + "\Resources" + r"\"")[:-1]
 icon = resources + "icon.ico"
@@ -39,6 +39,7 @@ screen.create_window(200, 140, window=budgetEntry)
 time = lambda format : datetime.now().strftime(format)
 # print(time(("%d/%m/%Y %H:%M:%S")))
 
+# CREATES WINDOW WITH THE COMPLETED BUILD
 def getOutput():
     usage.destroy()
     build = (buildPC(budget,cpu.get(),use.get()))
@@ -63,6 +64,7 @@ def getOutput():
         outputLabel = tk.Label(output, text = build, font=("consolas",10))
         outputWindow.create_window(300,100, window=outputLabel)
 
+# GET USAGE(WORK OR GAMING)       
 def getUsage():
     global use
     global usage
@@ -80,7 +82,7 @@ def getUsage():
     tk.Radiobutton(usage,command = getOutput, text = "Gaming", variable = use,value = "Gaming", indicator = 0,background = "grey66").pack(fill = "x", ipady = 20)
 
 
-
+# GET CPU (AMD OR INTEL)
 def getCPU():
     global cpu
     global processor
@@ -95,7 +97,7 @@ def getCPU():
     tk.Radiobutton(processor, text = "Intel", variable = cpu,value = "Intel",command = getUsage, indicator = 0,background = "#0071c5").pack(fill = "x", ipady = 20)
     tk.Radiobutton(processor, text = "AMD", variable = cpu,value = "AMD",command = getUsage, indicator = 0,background = "#ca0505").pack(fill = "x", ipady = 20)
 
-
+# GET BUDGET FROM ENTRY
 def getBudget():
     global budget
     budget = (budgetEntry.get())
