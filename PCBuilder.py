@@ -5,7 +5,7 @@ def buildPC(budget,processor,use):
 
         budget = int(budget)
     #INPUTS THE USER'S BUDGET AND MAKES SURE THEY CAN AFFORD THE PARTS
-        if budget < 650:
+        if budget < 550:
                 return("You do not have enough money to build a PC. You should buy a laptop or a pre-built PC instead")
         else:
             
@@ -116,25 +116,39 @@ def buildPC(budget,processor,use):
                 ramPrice = 50
 
     #INCLUDES SSD FOR FASTER BOOT TIMES AND OS PERFORMANCE
-            storageBudget = storageBudget - 31
-            SSD = "256GB SSD"
-            ssdPrice = 31
+            if storageBudget*0.5 > 175:
 
-            if storageBudget >= 95:
+                storageBudget = storageBudget - 175
+                SSD = "1TB SSD"
+                ssdPrice = 175
+
+            elif storageBudget*0.5 > 80:
+
+                storageBudget = storageBudget - 80
+                SSD = "512GB SSD"
+                ssdPrice = 80
+
+            else:
+
+                storageBudget = storageBudget - 35
+                SSD = "256GB SSD"
+                ssdPrice = 35
+
+            if storageBudget >= 155:
                 HDD = "4TB HDD"
-                hddPrice = 95
+                hddPrice = 155
 
-            elif storageBudget >= 64:
+            elif storageBudget >= 99:
                 HDD = "2TB HDD"
-                hddPrice = 64
+                hddPrice = 99
             
-            elif storageBudget >= 42:
+            elif storageBudget >= 49:
                 HDD = "1TB HDD"
-                hddPrice = 42
+                hddPrice = 49
 
-            elif storageBudget >= 25:
+            elif storageBudget >= 35:
                 HDD = "512GB HDD"
-                hddPrice = 25
+                hddPrice = 35
 
             
             if processor == "Intel":
