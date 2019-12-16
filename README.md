@@ -1,6 +1,6 @@
 # PCBuilder #
 
-A small program designed to assist in purchasing parts for a system written in Python and using the Tk interface.
+A small program designed to assist in purchasing parts for a system written in Python TKinter.
 
 
 
