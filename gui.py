@@ -10,13 +10,13 @@ def error():
     wOpen("https://github.com/NasifQadri/PCBuilder/issues/new", new=2)
      
 
-# GET CURRENT WORKING DIRECTORY
+# GET CWD
 cwd = str(Path(__file__).parent.absolute())
 cwd = cwd.replace("\\","/") 
 resources = (str(cwd) + "/Resources/")
 icon = resources + "icon.ico"
 
-root= tk.Tk()
+root = tk.Tk()
 root.title("PC Builder")
 
 root.iconbitmap(icon)
