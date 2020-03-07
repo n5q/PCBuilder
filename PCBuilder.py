@@ -6,7 +6,7 @@ def buildPC(budget,processor,use):
         budget = int(budget)
     #INPUTS THE USER'S BUDGET AND MAKES SURE THEY CAN AFFORD THE PARTS
         if budget < 550:
-                return("You do not have enough money to build a PC. You should buy a laptop or a pre-built PC instead")
+                return("You do not have enough money to build a PC. You should buy a laptop or a pre-built PC instead") ##  I KNOW THAT YOU CAN BUILD FOR MUCH CHEAPAER // WILL REDUCE LIMIT IN A FUTURE UPDATE
         else:
             
     #DETERMINES RATIOS FOR EACH PART BASED OFF OF THE BUDGET AND USE SELECTED BY THE USER
